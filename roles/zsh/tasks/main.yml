@@ -1,0 +1,24 @@
+---
+- name: Install zsh
+  apt:
+    name: zsh
+- name: Get oh-my-zsh installer
+  get_url:
+    url: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+    dest: /tmp/install-oh-my-zsh.sh
+- name: Install oh-my-zsh
+  command:
+    argv:
+      - /bin/sh
+      - /tmp/install-oh-my-zsh.sh
+      - --unattended
+  become: true
+  become_user: isaac
+- name: Remove oh-my-zsh installer
+  file:
+    path: /tmp/install-oh-my-zsh.sh
+    state: absent
+- name: Set zsh as default shell
+  user:
+    name: isaac
+    shell: /bin/zsh

@@ -1,0 +1,23 @@
+---
+- name: Get scala installer
+  get_url:
+    url: https://github.com/coursier/launchers/raw/master/cs-x86_64-pc-linux.gz
+    dest: /tmp/cs.gz
+- name: Unzip scala installer
+  shell: gzip -d /tmp/cs.gz > /tmp/cs
+- name: Make scala installer executable
+  file:
+    path: /tmp/cs
+    mode: 0755
+- name: Run scala installer
+  command:
+    argv:
+      - /tmp/cs
+      - setup
+      - -y
+  become: true
+  become_user: isaac
+- name: Remove scala installer
+  file:
+    path: /tmp/cs
+    state: absent
