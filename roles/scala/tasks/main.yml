@@ -4,7 +4,7 @@
     url: https://github.com/coursier/launchers/raw/master/cs-x86_64-pc-linux.gz
     dest: /tmp/cs.gz
 - name: Unzip scala installer
-  shell: gzip -d /tmp/cs.gz > /tmp/cs
+  shell: gzip -dc /tmp/cs.gz > /tmp/cs
 - name: Make scala installer executable
   file:
     path: /tmp/cs

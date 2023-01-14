@@ -1,7 +1,9 @@
 ---
-- name: Install zsh
+- name: Install git and zsh
   apt:
-    name: zsh
+    name:
+      - git
+      - zsh
 - name: Get oh-my-zsh installer
   get_url:
     url: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
