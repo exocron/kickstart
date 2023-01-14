@@ -1,0 +1,33 @@
+---
+- name: Install apt-transport-https
+  apt:
+    name: apt-transport-https
+- name: Download dkp GPG key
+  get_url:
+    url: https://apt.devkitpro.org/devkitpro-pub.gpg
+    dest: /usr/local/share/keyring/devkitpro-pub.gpg
+- name: Install dkp apt repository
+  copy:
+    content: deb [signed-by=/usr/local/share/keyring/devkitpro-pub.gpg] https://apt.devkitpro.org stable main
+    dest: /etc/apt/sources.list.d/devkitpro.list
+- name: Install dkp-pacman
+  apt:
+    name: devkitpro-pacman
+    update_cache: true
+- name: Remove dkp install files
+  file:
+    path: "{{ item }}"
+    state: absent
+  loop:
+    - /usr/local/share/keyring/devkitpro-pub.gpg
+    - /etc/apt/sources.list.d/devkitpro.list
+- name: Remove dkp apt dependencies
+  apt:
+    name: apt-transport-https
+    state: absent
+- name: Install GBA development tools
+  command: /usr/bin/dkp-pacman -Syu --noconfirm gba-dev
+- name: Install GBA emulator (VBA-M)
+  snap:
+    name: visualboyadvance-m
+    channel: latest/beta
