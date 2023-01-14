@@ -24,7 +24,7 @@
     src: erlang-build-dependencies_1.0_all.deb
     dest: /tmp/erl.deb
 - name: Install erlang build dependencies
-  command: apt-get install /tmp/erl.deb
+  command: apt-get install -y /tmp/erl.deb
 - name: Install erlang with asdf
   shell:
     cmd: 'source /home/isaac/.asdf/asdf.sh
