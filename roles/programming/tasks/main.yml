@@ -1,0 +1,23 @@
+---
+- name: Install programming tools
+  apt:
+    name:
+      - build-essential
+      - clang
+      - luajit
+      - nasm
+      - ninja-build
+      - pkg-config
+      - podman
+- name: Install Deno
+  snap:
+    name: deno
+- name: Install Julia
+  snap:
+    name: julia
+    classic: true
+- name: Install Zig
+  snap:
+    name: zig
+    channel: latest/beta
+    classic: true

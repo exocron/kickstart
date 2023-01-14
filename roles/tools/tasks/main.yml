@@ -1,0 +1,16 @@
+---
+- name: Install tools (1/2)
+  apt:
+    name:
+      - hexedit
+      - iw
+      - net-tools
+      - vim
+      - wireguard-tools
+      - wireless-tools
+- name: Install tools (2/2)
+  snap:
+    name:
+      - nmap
+      - pdftk
+      - youtube-dl

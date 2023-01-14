@@ -1,0 +1,10 @@
+---
+- name: Install desktop software
+  snap:
+    name:
+      - audacity
+      - discord
+      - gimp
+      - slack
+      - vlc
+      - zoom-client

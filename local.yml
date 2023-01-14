@@ -5,9 +5,11 @@
   roles:
     - update
     - dconf
+    - desktop
     - elixir
     - fonts
-    - misc
+    - programming
     - scala
+    - tools
     - vscode
     - zsh
