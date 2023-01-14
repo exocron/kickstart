@@ -24,3 +24,14 @@
   user:
     name: isaac
     shell: /bin/zsh
+- name: Install custom theme (1/2)
+  copy:
+    src: isaac.zsh-theme
+    dest: /home/isaac/.oh-my-zsh/custom/themes/isaac.zsh-theme
+  become: true
+  become_user: isaac
+- name: Install custom theme (2/2)
+  lineinfile:
+    path: /home/isaac/.zshrc
+    regexp: ^ZSH_THEME=
+    line: ZSH_THEME="isaac"
