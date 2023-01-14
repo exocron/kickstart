@@ -41,3 +41,26 @@
     executable: /bin/bash
   become: true
   become_user: isaac
+- name: Install hex and rebar3
+  shell:
+    cmd: 'source /home/isaac/.asdf/asdf.sh
+      && mix local.hex --force
+      && mix local.rebar --force'
+    executable: /bin/bash
+  become: true
+  become_user: isaac
+- name: Install livebook
+  shell:
+    cmd: 'source /home/isaac/.asdf/asdf.sh
+      && mix escript.install --force hex livebook
+      && asdf reshim elixir'
+    executable: /bin/bash
+  become: true
+  become_user: isaac
+- name: Install phoenix
+  shell:
+    cmd: 'source /home/isaac/.asdf/asdf.sh
+      && mix archive.install --force hex phx_new'
+    executable: /bin/bash
+  become: true
+  become_user: isaac
