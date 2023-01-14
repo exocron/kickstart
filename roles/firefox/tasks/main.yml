@@ -1,0 +1,12 @@
+---
+- name: Install Firefox
+  snap:
+    name: firefox
+- name: Create policy config folder
+  file:
+    path: /etc/firefox/policies
+    state: directory
+- name: Configure Firefox policies
+  copy:
+    src: policies.json
+    dest: /etc/firefox/policies/policies.json

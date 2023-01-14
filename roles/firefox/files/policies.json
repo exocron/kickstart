@@ -1,0 +1,38 @@
+{
+    "policies": {
+        "DisableFirefoxAccounts": true,
+        "DisableFirefoxStudies": true,
+        "DisableMasterPasswordCreation": true,
+        "DisablePocket": true,
+        "DisableTelemetry": true,
+        "DisplayBookmarksToolbar": "never",
+        "EnableTrackingProtection": {
+            "Value": true,
+            "Locked": true,
+            "Cryptomining": true,
+            "Fingerprinting": true
+        },
+        "Extensions": {
+            "Install": [
+                "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi",
+                "https://addons.mozilla.org/firefox/downloads/latest/facebook-container/latest.xpi",
+                "https://addons.mozilla.org/firefox/downloads/latest/privacy-badger17/latest.xpi",
+                "https://addons.mozilla.org/firefox/downloads/latest/tree-style-tab/latest.xpi",
+                "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi"
+            ]
+        },
+        "FirefoxHome": {
+            "SponsoredTopSites": false,
+            "Pocket": false,
+            "SponsoredPocket": false
+        },
+        "OfferToSaveLogins": false,
+        "OfferToSaveLoginsDefault": false,
+        "OverrideFirstRunPage": "",
+        "OverridePostUpdatePage": "",
+        "PasswordManagerEnabled": false,
+        "PrimaryPassword": false,
+        "SearchBar": "separate",
+        "SearchSuggestEnabled": false
+    }
+}
