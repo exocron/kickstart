@@ -1,0 +1,23 @@
+---
+- name: Create user fonts directory
+  file:
+    path: /home/isaac/.fonts
+    state: directory
+  become: true
+  become_user: isaac
+- name: Install Source Code Variable (1/2)
+  get_url:
+    url: https://github.com/adobe-fonts/source-code-pro/releases/download/variable-fonts/SourceCodeVariable-Italic.otf
+    dest: /home/isaac/.fonts/SourceCodeVariable-Italic.otf
+  become: true
+  become_user: isaac
+- name: Install Source Code Variable (2/2)
+  get_url:
+    url: https://github.com/adobe-fonts/source-code-pro/releases/download/variable-fonts/SourceCodeVariable-Roman.otf
+    dest: /home/isaac/.fonts/SourceCodeVariable-Roman.otf
+  become: true
+  become_user: isaac
+- name: Update font cache
+  command: /usr/bin/fc-cache -f -v
+  become: true
+  become_user: isaac

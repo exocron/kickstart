@@ -1,0 +1,17 @@
+---
+- name: Install miscellaneous software (1/2)
+  snap:
+    name:
+      - audacity
+      - discord
+      - gimp
+      - nmap
+      - pdftk
+      - slack
+      - vlc
+      - youtube-dl
+      - zoom-client
+- name: Install miscellaneous software (2/2)
+  snap:
+    name: visualboyadvance-m
+    channel: latest/beta

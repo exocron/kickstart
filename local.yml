@@ -5,5 +5,8 @@
   roles:
     - update
     - dconf
+    - fonts
+    - misc
     - scala
+    - vscode
     - zsh

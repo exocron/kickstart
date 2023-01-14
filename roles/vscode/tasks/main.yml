@@ -1,0 +1,21 @@
+---
+- name: Install vscode
+  snap:
+    name: code
+    classic: true
+- name: Install VSpaceCode extension
+  command: /snap/bin/code --install-extension VSpaceCode.vspacecode
+  become: true
+  become_user: isaac
+- name: Install metals extension
+  command: /snap/bin/code --install-extension scalameta.metals
+  become: true
+  become_user: isaac
+- name: Install python extension
+  command: /snap/bin/code --install-extension ms-python.python
+  become: true
+  become_user: isaac
+- name: Install zig extension
+  command: /snap/bin/code --install-extension tiehuis.zig
+  become: true
+  become_user: isaac
