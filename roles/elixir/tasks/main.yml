@@ -19,30 +19,12 @@
     executable: /bin/bash
   become: true
   become_user: isaac
+- name: Copy erlang build dependencies
+  copy:
+    src: erlang-build-dependencies_1.0_all.deb
+    dest: /tmp/erl.deb
 - name: Install erlang build dependencies
-  apt:
-    name:
-      - autoconf
-      - bison
-      - build-essential
-      - dctrl-tools
-      - ed
-      - flex
-      - libgl1-mesa-dev
-      - libglu1-mesa-dev
-      - libncurses5-dev
-      - libsctp-dev
-      - libssl-dev
-      - libsystemd-dev
-      - libwxgtk-webview3.0-gtk3-dev
-      - libwxgtk3.0-gtk3-dev
-      - libx11-dev
-      - libxml2-utils
-      - m4
-      - openssl
-      - unixodbc-dev
-      - xsltproc
-      - zlib1g-dev
+  command: apt-get install /tmp/erl.deb
 - name: Install erlang with asdf
   shell:
     cmd: 'source /home/isaac/.asdf/asdf.sh
