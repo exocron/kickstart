@@ -1,0 +1,61 @@
+---
+- name: Install curl and git
+  apt:
+    name:
+      - curl
+      - git
+- name: Clone asdf repository
+  git:
+    repo: https://github.com/asdf-vm/asdf.git
+    dest: /home/isaac/.asdf
+    version: v0.10.2
+  become: true
+  become_user: isaac
+- name: Setup asdf plugins
+  shell:
+    cmd: 'source /home/isaac/.asdf/asdf.sh
+      && asdf plugin add erlang
+      && asdf plugin add elixir'
+    executable: /bin/bash
+  become: true
+  become_user: isaac
+- name: Install erlang build dependencies
+  apt:
+    name:
+      - autoconf
+      - bison
+      - build-essential
+      - dctrl-tools
+      - ed
+      - flex
+      - libgl1-mesa-dev
+      - libglu1-mesa-dev
+      - libncurses5-dev
+      - libsctp-dev
+      - libssl-dev
+      - libsystemd-dev
+      - libwxgtk-webview3.0-gtk3-dev
+      - libwxgtk3.0-gtk3-dev
+      - libx11-dev
+      - libxml2-utils
+      - m4
+      - openssl
+      - unixodbc-dev
+      - xsltproc
+      - zlib1g-dev
+- name: Install erlang with asdf
+  shell:
+    cmd: 'source /home/isaac/.asdf/asdf.sh
+      && asdf install erlang 25.2
+      && asdf global erlang 25.2'
+    executable: /bin/bash
+  become: true
+  become_user: isaac
+- name: Install elixir with asdf
+  shell:
+    cmd: 'source /home/isaac/.asdf/asdf.sh
+      && asdf install elixir 1.14.2-otp-25
+      && asdf global elixir 1.14.2-otp-25'
+    executable: /bin/bash
+  become: true
+  become_user: isaac
