@@ -35,3 +35,24 @@
     path: /home/isaac/.zshrc
     regexp: ^ZSH_THEME=
     line: ZSH_THEME="isaac"
+  become: true
+  become_user: isaac
+- name: Install path plugin (1/3)
+  file:
+    path: /home/isaac/.oh-my-zsh/custom/plugins/path
+    state: directory
+  become: true
+  become_user: isaac
+- name: Install path plugin (2/3)
+  copy:
+    src: path.plugin.zsh
+    dest: /home/isaac/.oh-my-zsh/custom/plugins/path/path.plugin.zsh
+  become: true
+  become_user: isaac
+- name: Install path plugin (3/3)
+  lineinfile:
+    path: /home/isaac/.zshrc
+    regexp: ^plugins=
+    line: plugins=(command-not-found git path)
+  become: true
+  become_user: isaac
